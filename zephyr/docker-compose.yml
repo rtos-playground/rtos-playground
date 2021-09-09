@@ -1,0 +1,61 @@
+version: '3'
+services:
+    helloworld:
+        container_name: helloworld
+        build:
+            context: .
+            args:
+              - sample=hello_world
+            dockerfile: ./Dockerfile
+        ports:
+            - 1234:1234
+
+    shell:
+        container_name: shell
+        build:
+            context: .
+            args:
+              - sample=subsys/shell/shell_module
+            dockerfile: ./Dockerfile
+        ports:
+            - 1234:1234
+
+    stack_bof:
+        container_name: stack_bof
+        build:
+            context: .
+            args:
+              - proj=/toys/stack_bof
+            dockerfile: ./Dockerfile
+        ports:
+            - 1234:1234
+
+    stack_bof_canary:
+        container_name: stack_bof_canary
+        build:
+            context: .
+            args:
+              - proj=/toys/stack_bof_canary
+            dockerfile: ./Dockerfile
+        ports:
+            - 1234:1234
+
+    print_canary:
+        container_name: print_canary
+        build:
+            context: .
+            args:
+              - proj=/toys/print_canary
+            dockerfile: ./Dockerfile
+        ports:
+            - 1234:1234
+
+    printf:
+        container_name: printf
+        build:
+            context: .
+            args:
+              - proj=/toys/printf
+            dockerfile: ./Dockerfile
+        ports:
+            - 1234:1234
